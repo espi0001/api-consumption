@@ -1,0 +1,32 @@
+:root {
+    /* Background */
+    --colorBg: #f6f3f2;
+
+    --colorHeaderBg: #3a0b19;
+    --colorNavBg: #b0152c;
+
+    --colorCardHeaderBg: #5b0e2b;
+    --colorCardBg: #ffffff;
+
+    --colorPosterBg: #eeeeee;
+
+    /* Border */
+    --colorCardBorder: #5b0e2b;
+
+
+    /* Text */
+    --colorMain: #1a1a1a;
+    --colorLight: #6b6b6b;
+    --colorComplementary: #ffffff;
+    --colorActive: #fef2d2;
+
+
+
+    --space-xs: 0.5rem;
+    --space-s: 0.75rem;
+    --space-m: 1rem;
+    --space-l: 1.25rem;
+
+    --font-body: "Calibri", "Trebuchet MS", sans-serif;
+    --font-title: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}

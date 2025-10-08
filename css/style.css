@@ -1,0 +1,171 @@
+@import 'variables.css';
+
+/* Chat helped with the Clamp */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: var(--colorBg);
+    color: var(--colorMain);
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2.2vw, 1.125rem);
+    line-height: 1.5;
+
+    > header {
+        background-color: var(--colorHeaderBg);
+        color: var(--colorComplementary);
+        padding: var(--space-m) clamp(var(--space-m), 4vw, var(--space-l));
+
+        h1 {
+            font-family: var(--font-title);
+            font-weight: bold;
+            font-size: clamp(1.8rem, 3.2vw, 3rem);
+        }
+    }
+
+    nav {
+        background-color: var(--colorNavBg);
+
+        ul {
+            list-style: none;
+            padding: var(--space-s) clamp(var(--space-m), 4vw, var(--space-l));
+            display: grid;
+            gap: clamp(0.5rem, 2vw, 1rem);
+
+            > li > a {
+                color: var(--colorComplementary);
+                text-decoration: none;
+                font-weight: bold;
+                padding: 0.35rem 0.25rem;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                &.selected {
+                    color: var(--colorActive);
+                    text-decoration: underline;
+                    text-underline-offset: 0.12rem;
+                }
+            }
+        }
+    }
+
+    main {
+        padding: clamp(var(--space-s), 2vw, var(--space-l)) clamp(var(--space-m), 4vw, var(--space-l));
+
+        #movieList {
+            display: grid;
+            gap: 1.25rem;
+
+            article {
+                background-color: var(--colorCardBg);
+                border: 0.1rem solid var(--colorCardBorder);
+                border-radius: 1rem;
+                overflow: hidden;
+
+                > header {
+                    background-color: var(--colorCardHeaderBg);
+                    color: var(--colorComplementary);
+                    padding: 0.75rem 1rem;
+
+                    .movie_title {
+                        font-family: var(--font-title);
+                        font-size: clamp(1.1rem, 2.2vw, 2rem);
+                        font-weight: bold;
+                    }
+                }
+
+                .image_text {
+                    display: grid;
+                    gap: 0.5rem;
+                    padding: 0.5rem;
+
+                    .poster_wrapper {
+                        padding: 0 3rem;
+
+                        img {
+                            width: 100%;
+                            display: block;
+                        }
+                    }
+
+                    .description {
+                        margin: 0.25rem 0 0.5rem;
+                        color: var(--colorMain);
+                        line-height: 1.5rem;
+                    }
+
+                    span {
+                        color: var(--colorLight);
+                    }
+                }
+            }
+        }
+    }
+    
+    footer {
+        background-color: var(--colorHeaderBg);
+        color: var(--colorComplementary);
+        text-align: center;
+        padding: 0.5rem;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* TABLET */
+@media (min-width: 750px) {
+    ul {
+        grid-auto-flow: column;
+        justify-content: start;
+    }
+body {
+    main {
+        #movieList {
+            article {
+                .image_text {
+                    grid-template-columns: 1fr 5fr;
+                    align-items: start;
+                    padding: 0;
+                    gap: 1rem;
+                    
+                    .poster_wrapper {
+                        padding: 0;
+                    }
+
+                    .description {
+                        margin: 1rem 1rem 1rem 0;
+                    }
+
+                    p:has(> span) {
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+    
+    
+}
+
+/* Laptop */
+@media (min-width: 1024px) {
+    body {
+        font-size: clamp(1.05rem, 1.6vw, 1.15rem);
+    }
+}
